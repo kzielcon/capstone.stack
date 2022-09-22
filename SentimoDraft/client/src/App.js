@@ -1,21 +1,30 @@
-import React, { Fragment } from "react";
-import Login from './components/Login';
-// import Dashboard from './components/Dashboard';
+import { Routes, Route } from "react-router-dom";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import "./index.css";
 
-// import './App.css';
-
-//components
-
-// import Dashboard from "./components/Dashboard";
-
-function App() {
+export default function App() {
   return (
-    <Fragment>
-      <div className="container">
-        <Login />
-      </div>
-    </Fragment>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login/>} />
+    </Routes>
   );
 }
+// import "./index.css";
+// import { Fragment } from "react";
+// import { Routes, Route } from "react-router-dom"
+// import Login from './components/Login';
 
-export default App;
+// //components
+
+// function App() {
+//   return (
+//       <Login />
+//       // <Routes>
+//       //   <Route path='/login' element={<Login />} />
+//       // </Routes>
+//   );
+// }
+
+// export default App;

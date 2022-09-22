@@ -10,9 +10,9 @@ html {
     display: grid;
     justify-items: center;
     align-items: center;
-	  width: 100%;
+    width: 100%;
     height: 100%;
-    min-height: 720px;
+    min-height: 750px;
     position: relative;
     /* background */
     background: url(../public/img/bg.png) no-repeat center center fixed; 
@@ -20,8 +20,8 @@ html {
     background-size: cover;
   }
   img {
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
     position: relative;
     object-fit: contain;
 
@@ -76,18 +76,18 @@ html {
   #error-msg-second-line {
     display: block;
   }
-  
+
   #login-form {
     align-self: flex-start;
     display: grid;
     justify-items: center;
     align-items: center;
   }
-  
+
   .login-form-field::placeholder {
     color: #3a3a3a;
   }
-  
+
   .login-form-field {
     border: none;
     border-bottom: 1px solid #3a3a3a;
@@ -123,8 +123,8 @@ html {
     color: rgb(71, 69, 69)
   }
 
-  
-/* Password Recovery  */
+
+  /* Password Recovery  */
     h3 {
       margin-top: 2%;
   }
@@ -162,5 +162,5 @@ html {
       background: url(../public/img/left-arrow.ico) no-repeat left;
   }
 
-  /* Admin Dashboard */
-  
+    /* Admin Dashboard */
+    
