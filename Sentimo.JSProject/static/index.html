@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <title>Login | Sentimo</title>
+  <link rel="icon" type="image/png" href="img/logo-url.ico">
+  <!-- google fonts --> 
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <!-- external CSS-->
+  <link rel="stylesheet" href="./style.css">
+  <!-- script -->
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main id="main-holder">
+      <img src="img/sample2.png" alt="Sentimo Logo" class="img-fluid"/>
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    <form id="login-form">
+      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
+      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+      <input type="submit" value="Login" id="login-form-submit">
+    </form>
+      <hr>
+      <a id="forgot-pass-text" href="password-recovery.html">Forgot Password?</a>
+  </main>
+</body>
+</html>
