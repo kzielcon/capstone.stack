@@ -1,30 +1,44 @@
-import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate
+} from "react-router-dom";
+import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
-import Home from "./components/Home";
+import PasswordRecovery from "./components/PasswordRecovery";
+import UserProfile from "./components/UserProfile"
+import Inventory from "./components/Inventory"
+import Orders from "./components/Orders"
+import CompanyProfile from "./components/CompanyProfile"
+import Reports from "./components/Reports"
+
+
 import "./index.css";
 
-export default function App() {
+
+function App() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  const setAuth = boolean => {
+    setIsAuthenticated(boolean)
+
+  }
+
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login/>} />
+      <Route path="/" element={ isAuthenticated ? ( <Navigate to='/Dashboard'/> ) : ( <Login setAuth={setAuth}/> ) } />
+      <Route path="/PasswordRecovery" element={<PasswordRecovery/>} />
+      <Route path="/Dashboard" element={ isAuthenticated ? ( <Dashboard setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } />
+        <Route path="/UserProfile" element={<UserProfile/>} />
+        <Route path="/Inventory" element={<Inventory/>} />
+        <Route path="/Orders" element={<Orders/>} />
+        <Route path="/CompanyProfile" element={<CompanyProfile/>} />
+        <Route path="/Reports" element={<Reports/>} />
     </Routes>
   );
+
 }
-// import "./index.css";
-// import { Fragment } from "react";
-// import { Routes, Route } from "react-router-dom"
-// import Login from './components/Login';
-
-// //components
-
-// function App() {
-//   return (
-//       <Login />
-//       // <Routes>
-//       //   <Route path='/login' element={<Login />} />
-//       // </Routes>
-//   );
-// }
-
-// export default App;
+export default App;
