@@ -9,10 +9,9 @@ import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import PasswordRecovery from "./components/PasswordRecovery";
 import UserProfile from "./components/UserProfile"
-import Inventory from "./components/Inventory"
-import Orders from "./components/Orders"
-import CompanyProfile from "./components/CompanyProfile"
-import Reports from "./components/Reports"
+import Users from "./components/Users"
+import Category from "./components/Category"
+import Inventory from './components/Inventory';
 
 
 import "./index.css";
@@ -24,19 +23,22 @@ function App() {
 
   const setAuth = boolean => {
     setIsAuthenticated(boolean)
-
   }
 
   return (
     <Routes>
       <Route path="/" element={ isAuthenticated ? ( <Navigate to='/Dashboard'/> ) : ( <Login setAuth={setAuth}/> ) } />
-      <Route path="/PasswordRecovery" element={<PasswordRecovery/>} />
+      <Route path="/PasswordRecovery" element={ <PasswordRecovery/> } />
       <Route path="/Dashboard" element={ isAuthenticated ? ( <Dashboard setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } />
-        <Route path="/UserProfile" element={<UserProfile/>} />
-        <Route path="/Inventory" element={<Inventory/>} />
-        <Route path="/Orders" element={<Orders/>} />
-        <Route path="/CompanyProfile" element={<CompanyProfile/>} />
-        <Route path="/Reports" element={<Reports/>} />
+      <Route path="/UserProfile" element={ isAuthenticated ? ( <UserProfile setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } />
+      <Route path="/Users" element={ isAuthenticated ? ( <Users setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } />
+      <Route path="/Category" element={ isAuthenticated ? ( <Category setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } />
+      <Route path="/Inventory" element={ isAuthenticated ? ( <Inventory setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } />
+      {/* <Route path="/Orders" element={ isAuthenticated ? ( <Orders setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } /> */}
+      {/* <Route path="/CompanyProfile" element={ isAuthenticated ? ( <CompanyProfile setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } /> */}
+      {/* <Route path="/Reports" element={ isAuthenticated ? ( <Reports setAuth={setAuth}/> ) : ( <Navigate to='/'/> ) } /> */}
+      {/* <Route path="/Reports" element={<Reports/>} /> */}
+      <Route path="/Logout" element={ <Login setAuth={null} /> } />
     </Routes>
   );
 

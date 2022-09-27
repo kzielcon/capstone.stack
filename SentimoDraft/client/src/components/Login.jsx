@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = ({ setAuth }) => {
+
+    if(setAuth == null)
+        window.location = "/";
+    
     const [inputs, setInputs] = useState({
         username: "",
         password: ""
@@ -41,6 +45,7 @@ const Login = ({ setAuth }) => {
             if (parseRes.token) {
                 //localstorage
                 localStorage.setItem("token", parseRes.token)
+                localStorage.setItem("id", parseRes.id)
                 setAuth(true)
             } else {
                 setAuth(false)
@@ -58,7 +63,7 @@ const Login = ({ setAuth }) => {
         <div className="row justify-content-center mx-auto mt-5 align-items-center">
             <div className="col-lg-4 col-md-6 col-sm-12 ">
                 <div className="card rounded-0">
-                    <div className="card-body p-5 text-center maincard">
+                    <div className="card-body p-5 text-center">
                         
                     <img src="img/sample2.png" alt="Sentimo Logo" className="img-fluid mb-5"/>
 

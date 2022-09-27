@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
+// Bootstrap Icons
+import 'bootstrap-icons/font/bootstrap-icons.css';
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
