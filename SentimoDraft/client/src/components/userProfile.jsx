@@ -4,13 +4,13 @@ import Sidebar from "./Sidebar";
 function UserProfile() {
     
     const [inputs, setInputs] = useState({
-        employeeFirstName: "",
-        employeeLastName: "",
-        employeeGender: "",
-        employeeMobile: "",
-        employeeAddress: "",
-        employeeEmail: "",
-        employeePass: ""
+        editEmployeeFirstName: "",
+        editEmployeeLastName: "",
+        editEmployeeGender: "",
+        editEmployeeMobile: "",
+        editEmployeeAddress: "",
+        editEmployeeEmail: "",
+        editEmployeePass: ""
     })
     
     //setting the inputs
@@ -18,26 +18,35 @@ function UserProfile() {
 
     //deconstructing the name and description variable from the inputs
     const {
-        employeeFirstName,
-        employeeLastName,
-        employeeGender,
-        employeeMobile,
-        employeeAddress,
-        employeeEmail,
-        employeePass
+        editEmployeeFirstName,
+        editEmployeeLastName,
+        editEmployeeGender,
+        editEmployeeMobile,
+        editEmployeeAddress,
+        editEmployeeEmail,
+        editEmployeePass
     } = inputs
 
     const onSubmitEmployeeForm = async (e) => {
         e.preventDefault()
         try {
+            if(editEmployeeFirstName==="")
+                throw "Failed to Update. First Name is required.";
+            if(editEmployeeLastName==="")
+                throw "Failed to Update. Last Name is required.";
+            if(editEmployeeEmail==="")
+                throw "Failed to Update. Email is required.";
+            if(editEmployeePass==="")
+                throw "Failed to Update. Password is required.";
+
             const body = {
-                employeeFirstName,
-                employeeLastName,
-                employeeGender,
-                employeeMobile,
-                employeeAddress,
-                employeeEmail,
-                employeePass
+                editEmployeeFirstName,
+                editEmployeeLastName,
+                editEmployeeGender,
+                editEmployeeMobile,
+                editEmployeeAddress,
+                editEmployeeEmail,
+                editEmployeePass
             }
             //fetch api for POST method
             const response = await fetch(
@@ -52,9 +61,11 @@ function UserProfile() {
             )
             // parse response
             const parseRes = await response.json();
-
             // display message
             alert(parseRes.msg);
+
+            // refresh page to see changes on sidebar
+            window.location = "/Dashboard";
         } catch (error) {
             console.log(error)
         }
@@ -66,15 +77,15 @@ function UserProfile() {
             const jsonData = await response.json()
 
             setInputs({
-                employeeFirstName: jsonData.first_name,
-                employeeLastName: jsonData.last_name,
-                employeeGender: jsonData.user_gender,
-                employeeMobile: jsonData.user_mobile,
-                employeeAddress: jsonData.user_addr,
-                employeeEmail: jsonData.user_email,
-                employeePass: jsonData.user_pass
+                editEmployeeFirstName: jsonData.first_name,
+                editEmployeeLastName: jsonData.last_name,
+                editEmployeeGender: jsonData.user_gender,
+                editEmployeeMobile: jsonData.user_mobile,
+                editEmployeeAddress: jsonData.user_addr,
+                editEmployeeEmail: jsonData.user_email,
+                editEmployeePass: jsonData.user_pass
             });
-        } catch (err) {;
+        } catch (err) {
             console.error(err.message)
         }
     }
@@ -96,12 +107,12 @@ function UserProfile() {
                         <div className="row">
                             <div className="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="employeeFirstName">First Name</label>
+                                    <label for="editEmployeeFirstName">First Name</label>
                                     <input
                                         type="text"
-                                        name="employeeFirstName"
-                                        id="employeeFirstName"
-                                        value={employeeFirstName}
+                                        name="editEmployeeFirstName"
+                                        id="editEmployeeFirstName"
+                                        value={editEmployeeFirstName}
                                         onChange={e => onChange(e)}
                                         className="form-control"
                                         placeholder="First Name"
@@ -112,12 +123,12 @@ function UserProfile() {
                             </div>
                             <div className="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="employeeLastName">Last Name</label>
+                                    <label for="editEmployeeLastName">Last Name</label>
                                     <input
                                         type="text"
-                                        name="employeeLastName"
-                                        id="employeeLastName"
-                                        value={employeeLastName}
+                                        name="editEmployeeLastName"
+                                        id="editEmployeeLastName"
+                                        value={editEmployeeLastName}
                                         onChange={e => onChange(e)}
                                         className="form-control"
                                         placeholder="Last Name"
@@ -133,16 +144,17 @@ function UserProfile() {
                         <div className="row">
                             <div className="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="employeeGender">Gender</label>
+                                    <label for="editEmployeeGender">Gender</label>
                                     <select
                                         class="form-select"
                                         aria-label="Default select example"
-                                        name="employeeGender"
-                                        id="employeeGender"
-                                        value={employeeGender}
+                                        name="editEmployeeGender"
+                                        id="editEmployeeGender"
+                                        value={editEmployeeGender}
                                         onChange={e => onChange(e)}
                                         required
                                     >
+                                        <option value="">Select Gender here</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Lesbian">Lesbian</option>
@@ -154,12 +166,12 @@ function UserProfile() {
                             </div>
                             <div className="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="employeeMobile">Mobile Number</label>
+                                    <label for="editEmployeeMobile">Mobile Number</label>
                                     <input
                                         type="text"
-                                        name="employeeMobile"
-                                        id="employeeMobile"
-                                        value={employeeMobile}
+                                        name="editEmployeeMobile"
+                                        id="editEmployeeMobile"
+                                        value={editEmployeeMobile}
                                         onChange={e => onChange(e)}
                                         className="form-control"
                                         placeholder="Mobile Number"
@@ -174,12 +186,12 @@ function UserProfile() {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div class="form-group">
-                                    <label for="employeeAddress">Address</label>
+                                    <label for="editEmployeeAddress">Address</label>
                                     <input
                                         type="text"
-                                        name="employeeAddress"
-                                        id="employeeAddress"
-                                        value={employeeAddress}
+                                        name="editEmployeeAddress"
+                                        id="editEmployeeAddress"
+                                        value={editEmployeeAddress}
                                         onChange={e => onChange(e)}
                                         className="form-control"
                                         placeholder="Address"
@@ -194,12 +206,12 @@ function UserProfile() {
                         <div className="row">
                             <div className="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="employeeEmail">Email</label>
+                                    <label for="editEmployeeEmail">Email</label>
                                     <input
                                         type="email"
-                                        name="employeeEmail"
-                                        id="employeeEmail"
-                                        value={employeeEmail}
+                                        name="editEmployeeEmail"
+                                        id="editEmployeeEmail"
+                                        value={editEmployeeEmail}
                                         onChange={e => onChange(e)}
                                         className="form-control"
                                         placeholder="Email"
@@ -210,12 +222,12 @@ function UserProfile() {
                             </div>
                             <div className="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label for="employeePass">Password</label>
+                                    <label for="editEmployeePass">Password</label>
                                     <input
                                         type="password"
-                                        name="employeePass"
-                                        id="employeePass"
-                                        value={employeePass}
+                                        name="editEmployeePass"
+                                        id="editEmployeePass"
+                                        value={editEmployeePass}
                                         onChange={e => onChange(e)}
                                         className="form-control"
                                         placeholder="Password"

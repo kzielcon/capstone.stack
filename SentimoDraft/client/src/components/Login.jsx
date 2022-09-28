@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 
 const Login = ({ setAuth }) => {
 
+    // from Logout, setAuth is null
     if(setAuth == null)
+    {
+        localStorage.setItem("token", "")
+        localStorage.setItem("id", 0)
         window.location = "/";
+    }
     
     const [inputs, setInputs] = useState({
         username: "",

@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./Sidebar.css";
 
 function Sidebar() {
+
+    const [sidebarStyle, setSidebarStyle] = useState("");
+    
+    const sidebarButtonClicked = () => {
+        // if(sidebarStyle=="")
+        //     setSidebarStyle("active");
+        // else
+        //     setSidebarStyle("");
+        (sidebarStyle=="") ? setSidebarStyle("active") : setSidebarStyle("");
+    }
 
     const [userInfo, setUserInfo] = useState({
         userFirstName: "",
@@ -31,24 +42,35 @@ function Sidebar() {
     useEffect(() => { getUserInfo(); }, []);
 
   return ( 
-        <div className="text-white min-vh-100 sidebar">
+        <div className={`text-white min-vh-100 sidebar ${sidebarStyle}`}>
                 <div className="container">
                     <div className="row">
-                        <div className="col lg-3">
+                        <div className="col lg-3 applogo">
                             <img src="img/logo.ico"/>
                         </div>
-                        <div className="col lg-6">
+                        <div className="col lg-6 appname">
                             <h4>Sentimo</h4>
                         </div>
                         <div className="col lg-3">
-                            <i className="bx bxs-category" id="btn"></i>
+                            <i className="bx bxs-category" onClick={sidebarButtonClicked} id="btn"></i>
                         </div>
                     </div>
                 </div>
 
-                <ul>
+                <ul className="nav flex-column">
                     <li>
-                        <div className="profile-content">
+                        <div class="profile-content">
+                            <div class="profile">
+                                <div class="profile-details">
+                                    <img src="img/sample.jpg" alt="User Image"/>
+                                    <div className="name_role">
+                                        <div className="name"> {userFirstName} {userLastName}</div>
+                                        <div className="fw-bold pt-0"> {userRole} </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* <div className="profile-content">
                             <div className="profile">
                                 <div className="profile-details">
                                     <div className="container">
@@ -68,12 +90,7 @@ function Sidebar() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <i className="bx bx-search"></i>
-                        <input type="text" id="search-field" placeholder=" Search..."/>
-                        <span className="tooltip"> Search </span>
+                        </div> */}
                     </li>
                     <li>
                         <Link to="/Dashboard">
@@ -110,6 +127,13 @@ function Sidebar() {
                         </Link>
                         <span class="tooltip"> Inventory </span>
                     </li>
+                    <li>
+                        <Link to="/Logout">
+                            <i class='bx bx-log-out'></i>
+                            <span class="link-name"> Log out </span>
+                        </Link>
+                        <span class="tooltip"> Log out </span>
+                    </li>
                     {/* <li>
                         <Link to="/Orders">
                             <i class='bx bx-notepad'></i>
@@ -138,13 +162,6 @@ function Sidebar() {
                         </a>
                         <span class="tooltip"> Settings </span>
                     </li> */}
-                    <li>
-                        <Link to="/Logout">
-                            <i class='bx bx-log-out'></i>
-                            <span class="link-name"> Log out </span>
-                        </Link>
-                        <span class="tooltip"> Log out </span>
-                    </li>
                 </ul>  
         </div>
   );

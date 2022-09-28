@@ -25,6 +25,20 @@ function App() {
     setIsAuthenticated(boolean)
   }
 
+  const checkLogin = () => {
+    // if(localStorage.getItem("token")!=="")
+    // {
+    //   setIsAuthenticated(true);
+    // }
+    // else
+    // {
+    //   setIsAuthenticated(false);
+    // }
+    setIsAuthenticated( localStorage.getItem("token")!=="" )
+  }
+
+  useEffect(() => { checkLogin(); }, []);
+
   return (
     <Routes>
       <Route path="/" element={ isAuthenticated ? ( <Navigate to='/Dashboard'/> ) : ( <Login setAuth={setAuth}/> ) } />

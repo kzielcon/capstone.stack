@@ -68,7 +68,7 @@ function Category() {
             setCategories(jsonData);
             
             setTimeout(function(){ $('#table').DataTable() } , 1);
-        } catch (err) {;
+        } catch (err) {
             console.error(err.message)
         }
     }
@@ -135,44 +135,60 @@ function Category() {
                     
                     <div className="container border p-3 mt-3">
                         <div className="row">
-                            <div className="col-lg-3">
+                            <div className="col-lg-12">
+                                    
                                 <form onSubmit={onSubmitAddCategoryForm}>
-                                    <h4> Add Category </h4>
-                                    <div class="form-group">
-                                        <label for="categoryName">Category Name</label>
-                                        <input
-                                            type="text"
-                                            name="categoryName"
-                                            id="categoryName"
-                                            value={categoryName}
-                                            onChange={e => onChange(e)}
-                                            className="form-control"
-                                            placeholder="Category Name"
-                                            maxLength={20}
-                                            required
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="categoryDescription">Category Description</label>
-                                        <input
-                                            type="text"
-                                            name="categoryDescription"
-                                            id="categoryDescription"
-                                            value={categoryDescription}
-                                            onChange={e => onChange(e)}
-                                            className="form-control"
-                                            placeholder="Category Description"
-                                            maxLength={50}
-                                            required
-                                        />
-                                    </div>
-                                    <div class="d-grid gap-1">
-                                        <input type="submit" className="btn btn-primary mt-3" value="Add Category" />
+
+                                    <div className="container mt-3">
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <h4> Add Category </h4>
+                                            </div>
+                                            <div className="col-lg-4 col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="categoryName">Category Name</label>
+                                                    <input
+                                                        type="text"
+                                                        name="categoryName"
+                                                        id="categoryName"
+                                                        value={categoryName}
+                                                        onChange={e => onChange(e)}
+                                                        className="form-control"
+                                                        placeholder="Category Name"
+                                                        maxLength={20}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-4 col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="categoryDescription">Category Description</label>
+                                                    <input
+                                                        type="text"
+                                                        name="categoryDescription"
+                                                        id="categoryDescription"
+                                                        value={categoryDescription}
+                                                        onChange={e => onChange(e)}
+                                                        className="form-control"
+                                                        placeholder="Category Description"
+                                                        maxLength={50}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-2 col-md-12 col-sm-12">
+                                                <div class="d-grid">
+                                                    <input type="submit" className="btn btn-primary mt-4" value="Add Category" />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
-
                             </div>
-                            <div className="col-lg-9">
+                            
+                            <hr className="mt-5" />
+
+                            <div className="col-lg-12 mt-3">
                                 <center><h4> Category List </h4></center>
                                 <table className="table" id="table">
                                     <thead>

@@ -85,7 +85,7 @@ function Inventory() {
             await setProducts(jsonData);
             
             setTimeout(function(){ $('#table').DataTable(); } , 1);
-        } catch (error) {;
+        } catch (error) {
             console.error(error.message)
         }
     }
@@ -147,7 +147,7 @@ function Inventory() {
             const jsonData = await response.json()
 
             setCategories(jsonData);
-        } catch (error) {;
+        } catch (error) {
             console.error(error.message)
         }
     }
@@ -166,77 +166,95 @@ function Inventory() {
                     
                     <div className="container border p-3 mt-3">
                         <div className="row">
-                            <div className="col-lg-3">
+                            <div className="col-lg-12">
                                 <form onSubmit={onSubmitAddProductForm}>
-                                    <h4> Add Product </h4>
-                                    <div class="form-group">
-                                        <label for="productName">Product Name</label>
-                                        <input
-                                            type="text"
-                                            name="productName"
-                                            id="productName"
-                                            value={productName}
-                                            onChange={e => onChange(e)}
-                                            className="form-control"
-                                            placeholder="Product Name"
-                                            maxLength={20}
-                                            required
-                                        />
-                                    </div>
                                     
-                                    <div class="form-group">
-                                        <label for="productCategory">Product Category</label>
-                                        <select
-                                            class="form-select"
-                                            aria-label="Default select example"
-                                            name="productCategory"
-                                            id="productCategory"
-                                            value={productCategory}
-                                            onChange={e => onChange(e)}
-                                            required
-                                        >
-                                            <option value="">Select Category here</option>
-                                        {categories.map(category => (
-                                            <option value={category.id}>{category.name}</option>
-                                        ))}
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="productQuantity">Quantity</label>
-                                        <input
-                                            type="number"
-                                            min={0} max={1000000}
-                                            name="productQuantity"
-                                            id="productQuantity"
-                                            value={productQuantity}
-                                            onChange={e => onChange(e)}
-                                            className="form-control"
-                                            placeholder="Quantity"
-                                            step={1}
-                                        />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="productUnitPrice">Unit Price</label>
-                                        <input
-                                            type="number"
-                                            min={0} max={1000000}
-                                            name="productUnitPrice"
-                                            id="productUnitPrice"
-                                            value={productUnitPrice}
-                                            onChange={e => onChange(e)}
-                                            className="form-control"
-                                            placeholder="Unit Price"
-                                            step={0.01}
-                                            required
-                                        />
-                                    </div>
-                                    <div class="d-grid gap-1">
-                                        <input type="submit" className="btn btn-primary mt-3" value="Add Product" />
+                                    <div className="container mt-3">
+                                        <div className="row">
+                                            <div className="col-lg-12">
+                                                <h4> Add Product </h4>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="productName">Product Name</label>
+                                                    <input
+                                                        type="text"
+                                                        name="productName"
+                                                        id="productName"
+                                                        value={productName}
+                                                        onChange={e => onChange(e)}
+                                                        className="form-control"
+                                                        placeholder="Product Name"
+                                                        maxLength={20}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="productCategory">Product Category</label>
+                                                    <select
+                                                        class="form-select"
+                                                        aria-label="Default select example"
+                                                        name="productCategory"
+                                                        id="productCategory"
+                                                        value={productCategory}
+                                                        onChange={e => onChange(e)}
+                                                        required
+                                                    >
+                                                        <option value="">Select Category here</option>
+                                                    {categories.map(category => (
+                                                        <option value={category.id}>{category.name}</option>
+                                                    ))}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="productQuantity">Quantity</label>
+                                                    <input
+                                                        type="number"
+                                                        min={0} max={1000000}
+                                                        name="productQuantity"
+                                                        id="productQuantity"
+                                                        value={productQuantity}
+                                                        onChange={e => onChange(e)}
+                                                        className="form-control"
+                                                        placeholder="Quantity"
+                                                        step={1}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="productUnitPrice">Unit Price (₱)</label>
+                                                    <input
+                                                        type="number"
+                                                        min={0} max={1000000}
+                                                        name="productUnitPrice"
+                                                        id="productUnitPrice"
+                                                        value={productUnitPrice}
+                                                        onChange={e => onChange(e)}
+                                                        className="form-control"
+                                                        placeholder="Unit Price"
+                                                        step={0.01}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="col-lg-12 col-md-12 col-sm-12">
+                                                <div class="d-grid">
+                                                    <input type="submit" className="btn btn-primary mt-4" value="Add Product" />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
-
                             </div>
-                            <div className="col-lg-9">
+
+                            <hr className="mt-5" />
+
+                            <div className="col-lg-12">
                                 <center><h4> Inventory </h4></center>
                                 <table className="table" id="table">
                                     <thead>
@@ -332,7 +350,7 @@ function Inventory() {
                                                                 />
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="editProductUnitPrice">Unit Price</label>
+                                                                <label for="editProductUnitPrice">Unit Price (₱)</label>
                                                                 <input
                                                                     type="number"
                                                                     min={0} max={1000000}

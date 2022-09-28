@@ -1,0 +1,172 @@
+.sidebar #btn {
+    color: rgb(244, 143, 20);
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+    
+.sidebar ul li{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    /* line-height: 50px; */
+}
+
+.sidebar ul li input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    line-height:  50px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background: rgb(32, 36, 58);
+    padding-left: 50px;
+    font-size: 16px;
+    color: white;
+}
+
+.sidebar ul li a{
+    color: white;
+    display: flex;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    white-space: nowrap;
+}
+.sidebar ul li a:hover{
+background: rgb(255, 255, 255);
+color: rgba(10, 10, 33, 0.975);
+}
+.sidebar ul li i {
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+
+/* Profile Content */
+.sidebar {
+    position: fixed;
+    /* top: 0;
+    left: 0; */
+    height: 100%;
+    min-width: auto;
+    background: rgba(16, 16, 47, 0.975);
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+
+.sidebar .profile-content{
+position: absolute;
+color: white;
+}
+.profile-content .profile{
+/* position: relative; */
+height: 45px;
+background-size: 60px;
+}
+
+.profile .profile-details  img{
+height: 45px;
+width: 45px;
+/* object-fit: cover; */
+border-radius: 10px;
+}
+.profile .profile-details .name_role{
+    float: right;
+    margin-left: 10px;
+    font-size: 16px;
+    color: white;
+    margin-right: 10px;
+    /* opacity: 0; */
+}
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+/* Logo Content */
+.sidebar .logo-content .logo {
+    color:#fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+.logo-content {
+    margin-right: 5px;
+}
+.logo-name {
+    margin-left: 10px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+
+
+
+
+.sidebar.active {
+    transition: all 0.5s ease;
+    width: 100px;
+}
+
+.sidebar.active .logo-content .logo{
+    opacity: 1;
+    pointer-events: none;
+}
+
+.sidebar.active .logo-content .logo{
+    opacity: 1;
+    pointer-events: none;
+}
+
+.sidebar.active .appname {
+    display: none;
+}
+.sidebar.active .applogo {
+    display: none;
+}
+
+.sidebar.active #btn{
+    left: 90%;
+}
+
+.sidebar.active li .link-name {
+    display: none;
+}
+
+.sidebar.active ul li:hover .tooltip{
+    display: none;
+}
+
+.sidebar.active ~ .home_content{
+    width: calc(100% - 100px);
+    left: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

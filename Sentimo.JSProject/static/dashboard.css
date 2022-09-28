@@ -111,13 +111,13 @@ body {
     font-size: 16px;
     color: white;
 }
-.sidebar ul li .bx-search{
+/* .sidebar ul li .bx-search{
     position: absolute;
     color: white;
     z-index: 99;
     font-size: 20px;
     transition: all 0.5 ease;
-}
+} */
 .sidebar ul li .bx-search:hover{
     background: rgb(255, 255, 255);
     color: rgb(32, 36, 58);

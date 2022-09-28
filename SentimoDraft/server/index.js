@@ -77,6 +77,9 @@ app.post("/userinfo", async (req, res) => {
             ]
         );
 
+        console.log(req.url)
+        console.log(user.rows[0])
+        
         res.json({"msg": "User added successfully."});
         // res.json(user.rows[0]);
     } catch (err) {
@@ -85,6 +88,10 @@ app.post("/userinfo", async (req, res) => {
 }).get("/userinfo", async(req, res) => {
     try {
         const allUsers = await pool.query("SELECT * FROM employees_info ORDER BY first_name, last_name")
+            
+        console.log(req.url)
+        console.log(allUsers.rows)
+        
         res.json(allUsers.rows);
     } catch (err) {
         console.log(err.message);
@@ -93,6 +100,9 @@ app.post("/userinfo", async (req, res) => {
     try {
       const { id } = req.params;
       const user = await pool.query("SELECT * FROM employees_info WHERE id = $1", [id])
+
+      console.log(req.url)
+      console.log(user.rows[0])
 
       res.json(user.rows[0]);
     } catch (err) {
@@ -111,7 +121,7 @@ app.post("/userinfo", async (req, res) => {
             editEmployeePass
         } = req.body;
         
-        const updatecategories = await pool.query(
+        const updateUser = await pool.query(
             `UPDATE employees_info SET
             first_name = $1,
             last_name = $2,
@@ -133,6 +143,9 @@ app.post("/userinfo", async (req, res) => {
             ]   
         );
 
+        console.log(req.url)
+        console.log(updateUser.rows[0])
+        
         res.json({"msg": "User Profile updated successfully."});
         // res.json("Updated!");
     } catch (err) {
@@ -253,6 +266,39 @@ app.post("/products", async (req, res) => {
             INNER JOIN categories ON categories.id=products.categories_id
             ORDER BY name, qty DESC, unitprice DESC`)
         res.json(allProducts.rows);
+    } catch (err) {
+        console.log(err.message);
+    }
+}).get("/productscount", async(req, res) => {
+    try {
+        const allProducts = await pool.query(`SELECT COUNT(*) FROM products`)
+        
+        // console.log(req.url)
+        // console.log(allProducts.rows[0]['count']);
+
+        res.json(allProducts.rows[0]['count']);
+    } catch (err) {
+        console.log(err.message);
+    }
+}).get("/productslowstock", async(req, res) => {
+    try {
+        const products = await pool.query(`SELECT COUNT(*) FROM products WHERE qty<10 AND qty>0 `)
+        
+        // console.log(req.url)
+        // console.log(allProducts.rows[0]['count']);
+
+        res.json(products.rows[0]['count']);
+    } catch (err) {
+        console.log(err.message);
+    }
+}).get("/productsnostock", async(req, res) => {
+    try {
+        const products = await pool.query(`SELECT COUNT(*) FROM products WHERE qty=0 `)
+        
+        // console.log(req.url)
+        // console.log(allProducts.rows[0]['count']);
+
+        res.json(products.rows[0]['count']);
     } catch (err) {
         console.log(err.message);
     }
