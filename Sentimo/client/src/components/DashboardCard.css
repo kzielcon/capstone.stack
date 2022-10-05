@@ -1,0 +1,47 @@
+.values{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .values .val-box{
+    min-width: 250px;
+    width: 15%;
+    height: 120px;
+    margin: 10px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .values .val-box:nth-child(1){
+    background: #eb7a17df;
+  }
+  .values .val-box:nth-child(2){
+    background: #e11a60cd;
+  }
+  .values .val-box:nth-child(3){
+    background: #c126e8df;
+  }
+  .values .val-box:nth-child(4){
+    background: #e92525df;
+  }
+  .val-box #values-number{
+    color:rgba(244, 244, 249, 0.975);
+    font-size: 25px;
+  }
+  #values-text{
+    color:rgba(10, 10, 33, 0.975);
+    font-weight: 900;
+  }
+  .values .val-box i{
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    line-height:  60px;
+    text-align: center;
+    color:rgb(247, 248, 251);
+    border-radius: 50%;
+  }

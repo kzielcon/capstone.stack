@@ -1,0 +1,177 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 78px;
+    background: rgba(16, 16, 47, 0.975);
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+.sidebar.active{
+    width: 240px;
+}
+.sidebar .sidebarIcon {
+    position: absolute;
+    color: rgb(244, 143, 20);
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+
+}
+.sidebar.active .sidebarIcon{
+    left: 90%;
+}
+.sidebar ul li{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+}
+
+.sidebar ul li a{
+    color: white;
+    display: flex;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    white-space: nowrap;
+}
+
+.sidebar ul li .icon {
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sidebar ul li .pages{
+    opacity: 0;
+}
+
+
+/* Profile Content */
+.sidebar .logo-content .logo {
+    color:#fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.active .logo-content .logo{
+    opacity: 1;
+    pointer-events: none;
+}
+.logo-name {
+    margin-left: 10px;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.sidebar ul{
+    margin-top: 10%;
+}
+.sidebar ul li{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    /* line-height: 50px; */
+}
+.sidebar ul li .tooltip{
+    position: absolute;
+    left: 122px;
+    top: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    height: 35px;
+    width: 122px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+    color: black;
+}
+
+.sidebar ul li input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    line-height:  50px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background: rgb(32, 36, 58);
+    padding-left: 50px;
+    font-size: 16px;
+    color: white;
+}
+
+.sidebar ul li a:hover{
+    background: rgb(255, 255, 255);
+    color: rgba(10, 10, 33, 0.975);
+}
+.sidebar ul li i {
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+/* Profile Content */
+
+.sidebar .profile-content{
+    position: absolute;
+    color: white;
+}
+
+.profile .profile-details  img{
+    height: 45px;
+    width: 45px;
+    /* object-fit: cover; */
+    border-radius: 10px;
+}
+
+.profile .profile-details .name_role{
+    float: right;
+    margin-left: 10px;
+    font-size: 16px;
+    color: white;
+    opacity: 0;
+}
+.sidebar.active .name_role{
+    opacity: 1;
+}
+.sidebar.active ul li .pages{
+    opacity: 1;
+}
+
+.sidebar .link-active {
+    color: black;
+    background: orange;
+  }
+
+.sidebar .active
+  {
+    color: orange;
+    font-weight: bolder;
+  }
+
+  
