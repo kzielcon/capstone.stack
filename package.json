@@ -1,0 +1,22 @@
+{
+  "name": "sentimo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzielcon/capstone.stack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kzielcon/capstone.stack/issues"
+  },
+  "homepage": "https://github.com/kzielcon/capstone.stack#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
